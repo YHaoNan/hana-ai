@@ -13,6 +13,6 @@ public interface LLM {
 
     LLMResponse chat(Message message);
 
-    void streamChat(LLMStreamListener listener);
+    void streamChat(List<Message> messages, LLMStreamListener listener);
 
 }

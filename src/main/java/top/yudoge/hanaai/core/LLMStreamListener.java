@@ -1,6 +1,5 @@
 package top.yudoge.hanaai.core;
 
-import com.sun.istack.internal.Nullable;
 
 public interface LLMStreamListener {
 
@@ -15,7 +14,7 @@ public interface LLMStreamListener {
      * @param reason 错误原因
      * @param e      异常，可能为空
      */
-    void onError(String reason, @Nullable Exception e);
+    void onError(String reason, Exception e);
 
     /**
      * 成功结束时回调

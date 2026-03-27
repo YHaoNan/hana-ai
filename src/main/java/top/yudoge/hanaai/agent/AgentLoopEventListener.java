@@ -1,6 +1,5 @@
 package top.yudoge.hanaai.agent;
 
-import com.sun.istack.internal.Nullable;
 import top.yudoge.hanaai.agent.tool.ToolDescription;
 
 public interface AgentLoopEventListener {
@@ -28,7 +27,7 @@ public interface AgentLoopEventListener {
 
 
 
-    void onError(String reason, @Nullable Exception e);
+    void onError(String reason, Exception e);
     void onComplete();
     void onFinish(AgentUsage usage);
 
