@@ -1,6 +1,6 @@
-package top.yudoge.hanaai.agent;
+package top.yudoge.hanaai.core.agent;
 
-import top.yudoge.hanaai.agent.tool.ToolDescription;
+import top.yudoge.hanaai.core.tool.ToolDescription;
 
 public interface AgentLoopEventListener {
 

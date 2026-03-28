@@ -1,4 +1,4 @@
-package top.yudoge.hanaai.agent.tool;
+package top.yudoge.hanaai.core.tool;
 
 public enum Type {
 
@@ -10,7 +10,5 @@ public enum Type {
     DoubleArray,
     StringArray,
     BoolArray,
-    Object,
-    ObjectArray
 
 }

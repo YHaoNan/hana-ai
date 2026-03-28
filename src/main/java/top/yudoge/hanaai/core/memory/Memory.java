@@ -1,6 +1,6 @@
-package top.yudoge.hanaai.memory;
+package top.yudoge.hanaai.core.memory;
 
-import top.yudoge.hanaai.core.Message;
+import top.yudoge.hanaai.core.chat.Message;
 
 import java.util.List;
 

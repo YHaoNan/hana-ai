@@ -1,6 +1,6 @@
-package top.yudoge.hanaai.core;
+package top.yudoge.hanaai.core.chat;
 
-public class LLMUsage {
+public class ModelUsage {
 
     private Boolean hasUsageStatics;
 

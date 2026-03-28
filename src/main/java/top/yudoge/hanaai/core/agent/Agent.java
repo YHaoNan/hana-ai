@@ -1,6 +1,6 @@
-package top.yudoge.hanaai.agent;
+package top.yudoge.hanaai.core.agent;
 
-import top.yudoge.hanaai.core.Message;
+import top.yudoge.hanaai.core.chat.Message;
 
 public interface Agent {
 

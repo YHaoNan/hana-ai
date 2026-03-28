@@ -1,13 +1,16 @@
 package top.yudoge.hanaai.test;
 
-import io.github.cdimascio.dotenv.Dotenv;
-import top.yudoge.hanaai.core.*;
+import top.yudoge.hanaai.core.chat.ChatResponse;
+import top.yudoge.hanaai.core.chat.stream.ChatStreamListener;
+import top.yudoge.hanaai.core.chat.ModelUsage;
+import top.yudoge.hanaai.core.chat.Message;
+import top.yudoge.hanaai.openai.OpenAIChatModel;
 import top.yudoge.hanaai.utils.EnvUtil;
 
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
 
-public class OpenAILLMTest {
+public class OpenAIChatModelTest {
     public static void main(String[] args) throws InterruptedException {
 
         String baseUrl = EnvUtil.get("OPENAI_BASE_URL");
@@ -15,14 +18,14 @@ public class OpenAILLMTest {
         String apiKey = EnvUtil.get("OPENAI_API_KEY");
 
         CountDownLatch latch = new CountDownLatch(1);
-        OpenAILLM openAILLM = new OpenAILLM(baseUrl, modelName, apiKey);
+        OpenAIChatModel openAIChatModel = new OpenAIChatModel(baseUrl, modelName, apiKey);
 
-//        LLMResponse response = openAILLM.chat(Message.user("你好，你是什么玩意儿"));
-//        System.out.println(response);
+        ChatResponse response = openAIChatModel.chat(Message.user("你好，你是什么玩意儿"));
+        System.out.println(response);
 
-        openAILLM.streamChat(Collections.singletonList(Message.user("你好，你是什么玩意儿")), new LLMStreamListener() {
+        openAIChatModel.streamChat(Collections.singletonList(Message.user("你好，你是什么玩意儿")), new ChatStreamListener() {
             @Override
-            public void onResponse(String content) {
+            public void onTextDelta(String content) {
                 System.out.print(content);
             }
 
@@ -38,7 +41,7 @@ public class OpenAILLMTest {
             }
 
             @Override
-            public void onFinish(LLMUsage usage) {
+            public void onFinish(ModelUsage usage) {
                 System.out.println("finish");
                 latch.countDown();
             }

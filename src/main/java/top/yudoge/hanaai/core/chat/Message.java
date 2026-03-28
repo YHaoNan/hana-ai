@@ -1,4 +1,4 @@
-package top.yudoge.hanaai.core;
+package top.yudoge.hanaai.core.chat;
 
 public class Message {
 

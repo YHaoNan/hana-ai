@@ -1,12 +1,13 @@
-package top.yudoge.hanaai.agent.tool;
+package top.yudoge.hanaai.core.tool;
+
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class ToolDescription {
 
     private String id;
-
-    private String name;
 
     private String description;
 
