@@ -24,7 +24,7 @@ public class ValidationUtil {
 
     public static boolean messageNotBlank(Message message) {
         return message != null &&
-                stringNotEmpty(message.getMessage()) &&
+                stringNotEmpty(message.getContent()) &&
                 stringNotEmpty(message.getRole());
     }
 

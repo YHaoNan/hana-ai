@@ -231,7 +231,7 @@ public class OpenAIChatModel implements ChatModel {
             for (Message msg : messages) {
                 ObjectNode msgNode = messageArray.addObject();
                 msgNode.put("role", msg.getRole());
-                msgNode.put("content", msg.getMessage());
+                msgNode.put("content", msg.getContent());
             }
         }
 
@@ -306,7 +306,7 @@ public class OpenAIChatModel implements ChatModel {
 
             Message message = new Message();
             message.setRole(messageNode.has("role") ? messageNode.get("role").asText() : "assistant");
-            message.setMessage(messageNode.has("content") ? messageNode.get("content").asText() : "");
+            message.setContent(messageNode.has("content") ? messageNode.get("content").asText() : "");
 
             ModelUsage usage = null;
             ObjectNode usageNode = (ObjectNode) node.get("usage");

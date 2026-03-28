@@ -14,18 +14,32 @@ public class Message {
         this.role = role;
     }
 
-    public String getMessage() {
+    public String getContent() {
         return content;
     }
 
-    public void setMessage(String content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
     public static Message user(String content) {
         Message message = new Message();
-        message.setMessage(content);
+        message.setContent(content);
         message.setRole("user");
+        return message;
+    }
+
+    public static Message assistant(String content) {
+        Message message = new Message();
+        message.setContent(content);
+        message.setRole("assistant");
+        return message;
+    }
+
+    public static Message system(String content) {
+        Message message = new Message();
+        message.setContent(content);
+        message.setRole("system");
         return message;
     }
 
