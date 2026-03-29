@@ -1,34 +1,27 @@
 package top.yudoge.hanaai.core.agent;
 
-import top.yudoge.hanaai.core.tool.ToolDescription;
+import top.yudoge.hanaai.core.tool.Tool;
+import top.yudoge.hanaai.core.tool.ToolCall;
+import top.yudoge.hanaai.core.tool.ToolCallResult;
+import top.yudoge.hanaai.core.tool.ToolDefinition;
 
 public interface AgentLoopEventListener {
 
-    void onStartThinking();
+    void onThinkingStart(String turnId);
 
-    void onThinking(String content);
+    void onThinking(String turnId, String content);
 
-    void onEndThinking();
-
-
+    void onThinkingEnd(String turnId, Long timeConsumed);
 
 
 
-    void onToolCalling(ToolDescription description); // todo
+    void onToolCallingStart(String turnId, ToolDefinition definition, ToolCall toolCall);
+
+    void onToolCallingEnd(String turnId, ToolCall toolCall, ToolCallResult toolCallResult, Long timeConsumed);
 
 
-
-
-    void onStartSummarizing();
-
-    void onSummarizing(String content);
-
-    void onEndSummarizing();
-
-
-
-    void onError(String reason, Exception e);
-    void onComplete();
-    void onFinish(AgentUsage usage);
+    void onError(String reason, Exception e, Long timeConsumed);
+    void onComplete(Long timeConsumed);
+    void onFinish(String turnId, AgentUsage usage, Long timeConsumed);
 
 }

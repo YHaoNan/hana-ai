@@ -2,7 +2,9 @@ package top.yudoge.hanaai.utils;
 
 import top.yudoge.hanaai.core.chat.Message;
 import top.yudoge.hanaai.core.chat.ModelUsage;
+import top.yudoge.hanaai.core.tool.Tool;
 import top.yudoge.hanaai.core.tool.ToolCall;
+import top.yudoge.hanaai.core.tool.ToolDefinition;
 
 import java.util.Collection;
 import java.util.List;
@@ -40,5 +42,12 @@ public class ValidationUtil {
         return string != null && !string.isEmpty();
     }
 
+    public static boolean toolNotBlank(Tool tool) {
+        return tool != null && toolDescriptionNotBlank(tool.definition());
+    }
+
+    public static boolean toolDescriptionNotBlank(ToolDefinition toolDefinition) {
+        return (toolDefinition != null && toolDefinition.getIdentifier() != null);
+    }
 
 }

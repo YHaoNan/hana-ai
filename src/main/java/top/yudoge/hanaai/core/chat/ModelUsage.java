@@ -2,19 +2,9 @@ package top.yudoge.hanaai.core.chat;
 
 public class ModelUsage {
 
-    private Boolean hasUsageStatics;
-
     private Long inputTokens;
 
     private Long outputTokens;
-
-    public Boolean getHasUsageStatics() {
-        return hasUsageStatics;
-    }
-
-    public void setHasUsageStatics(Boolean hasUsageStatics) {
-        this.hasUsageStatics = hasUsageStatics;
-    }
 
     public Long getInputTokens() {
         return inputTokens;
@@ -30,5 +20,12 @@ public class ModelUsage {
 
     public void setOutputTokens(Long outputTokens) {
         this.outputTokens = outputTokens;
+    }
+
+    public static ModelUsage zero() {
+        ModelUsage modelUsage = new ModelUsage();
+        modelUsage.setInputTokens(0L);
+        modelUsage.setOutputTokens(0L);
+        return modelUsage;
     }
 }

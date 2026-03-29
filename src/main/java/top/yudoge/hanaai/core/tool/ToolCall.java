@@ -2,34 +2,30 @@ package top.yudoge.hanaai.core.tool;
 
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Data
 public class ToolCall {
-
+    private String id;
     private String toolIdentifier;
+    private Tool tool;
+    private ToolCallParam params;
+    private ToolCallResult result;
+    private long startTime;
+    private long endTime;
 
-    private Map<String, Object> arguments;
-
-    public ToolCall() {
-        this.arguments = new HashMap<>();
-    }
-
-    public ToolCall(String toolIdentifier) {
+    public ToolCall(String id, String toolIdentifier) {
+        this.id = id;
         this.toolIdentifier = toolIdentifier;
-        this.arguments = new HashMap<>();
+        this.params = new ToolCallParam();
     }
 
-    public void addArgument(String name, Object value) {
-        if (this.arguments == null) {
-            this.arguments = new HashMap<>();
+    public void addParam(String name, Object value) {
+        if (this.params == null) {
+            this.params = new ToolCallParam();
         }
-        this.arguments.put(name, value);
+        this.params.put(name, value);
     }
 
-    public Object getArgument(String name) {
-        return arguments != null ? arguments.get(name) : null;
+    public Object getParam(String name) {
+        return params != null ? params.get(name) : null;
     }
-
 }
